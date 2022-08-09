@@ -1,0 +1,66 @@
+// { Driver Code Starts
+#include <iostream>
+using namespace std;
+
+
+ // } Driver Code Ends
+
+class Solution{
+    public:
+    string roundToNearest(string N) 
+    { 
+        // Complete the function
+    //     int length = N.length();
+    //     int ldg = N[length-1];
+        
+    //   if( ldg>5)
+    //   {
+    //      N[length -1] = '0';
+         
+    //   }
+    //   if( ldg<=5)
+    //   {
+    //       N[length -1] = '0';
+    //       N[length -2] = (int)N[length -2] +1;
+    //   }
+    //   cout<< N;
+     
+       if(N[N.size()-1] -'0' <= 5  )
+         {
+         N[N.size()-1]='0' ;
+         }
+       else
+         {
+             N[N.size()-1]='0' ;
+            int i=N.size()-2;
+            while(N[i]=='9' && i>=0)
+            {
+                N[i]='0';
+                i--;
+            }
+             if(i<0)
+              N='1'+N;
+             else
+              N[i]=N[i]-'0'+'1';
+         }
+       
+           return N;
+    }  
+
+};
+
+// { Driver Code Starts.
+
+int main() {
+    
+    int t;cin>>t;
+    while(t--)
+    {
+        string s;
+        cin>>s;
+        Solution ob;
+        cout << ob.roundToNearest(s) << endl;
+    }
+    
+	return 0;
+}  // } Driver Code Ends
